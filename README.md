@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/DevChrome/Gambit">
+  <a href="https://github.com/DevChrome/Keyring">
     <img alt="Logo" src="./Images/Logo.png">
   </a>
   
@@ -65,14 +65,14 @@ To get this project running locally from source, follow these steps:
 
 <!-- USAGE EXAMPLES -->
 ## Screenshots
-<img alt="Screenshot 1" src="./Images/Screenshot1.png" width="300">
-<img alt="Screenshot 2" src="./Images/Screenshot2.png" width="300">
-<img alt="Screenshot 3" src="./Images/Screenshot3.png" width="300">
-<img alt="Screenshot 4" src="./Images/Screenshot4.png" width="300">
-<img alt="Screenshot 5" src="./Images/Screenshot5.png" width="300">
-<img alt="Screenshot 6" src="./Images/Screenshot6.png" width="300">
-<img alt="Screenshot 7" src="./Images/Screenshot7.png" width="300">
-<img alt="Screenshot 8" src="./Images/Screenshot8.png" width="300">
+<img alt="Screenshot 1" src="./Images/Screenshot1.jpg" width="300">
+<img alt="Screenshot 2" src="./Images/Screenshot2.jpg" width="300">
+<img alt="Screenshot 3" src="./Images/Screenshot3.jpg" width="300">
+<img alt="Screenshot 4" src="./Images/Screenshot4.jpg" width="300">
+<img alt="Screenshot 5" src="./Images/Screenshot5.jpg" width="300">
+<img alt="Screenshot 6" src="./Images/Screenshot6.jpg" width="300">
+<img alt="Screenshot 7" src="./Images/Screenshot7.jpg" width="300">
+<img alt="Screenshot 8" src="./Images/Screenshot8.jpg" width="300">
 
 <!-- LICENSE -->
 ## License
