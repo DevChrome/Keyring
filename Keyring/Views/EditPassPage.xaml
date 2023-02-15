@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:h="clr-namespace:Keyring.Helpers"
+             x:Class="Keyring.EditPassPage"
+             NavigatedTo="HandleNavigatedTo">
+
+    <Shell.TitleView>
+        <Grid>
+            <Label Text="{Binding PageTitle}"
+                FontSize="30" TextColor="White"
+                HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </Shell.TitleView>
+    
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" IsEnabled="False"/>
+    </Shell.BackButtonBehavior>
+
+    <VerticalStackLayout Margin="40, 0">
+        <Grid Margin="40">
+            <ImageButton Aspect="AspectFit" Command="{Binding PickIconCommand}">
+                <ImageButton.Source>
+                    <FontImageSource FontFamily="BootstrapIcons"
+                                     Size="100" Color="{AppThemeBinding Light={StaticResource Gray600}, Dark=White}"
+                                     Glyph="{Binding Icon}"/>
+                </ImageButton.Source>
+            </ImageButton>
+        </Grid>
+        
+        <Border Padding="10, 0" Background="Transparent"
+                StrokeThickness="2" 
+                StrokeShape="RoundRectangle 15 0 0 15"
+                Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Primary}}">
+            <Entry Placeholder="Website"
+                   FontFamily="Coda"
+                   Text="{Binding Path=Website}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   Keyboard="{StaticResource SuggestionsKeyboard}"/>
+        </Border>
+
+        <Border Padding="10, 0" Background="Transparent"
+                StrokeThickness="2" 
+                StrokeShape="RoundRectangle 15 0 0 15"
+                Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Primary}}">
+            <Entry Placeholder="Password"
+                   FontFamily="Coda"
+                   Text="{Binding Path=ClearPass}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   Keyboard="{StaticResource NoneKeyboard}"/>
+            <!-- IsPassword="True" messes up the styling, do it manually! -->
+        </Border>
+
+        <Border Padding="10, 0" Margin="0, 20" Background="Transparent"
+                StrokeThickness="2" 
+                StrokeShape="RoundRectangle 15 0 0 15"
+                Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Primary}}">
+            <Editor Placeholder="Write a note here..."
+                   Text="{Binding Path=Note}"
+                   FontFamily="Coda" FontSize="18"
+                   MinimumHeightRequest="200"/>
+        </Border>
+
+        <Grid ColumnDefinitions="*, 5, *">
+            <Border Grid.Column="0"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 15, 0, 0, 0"
+                    BackgroundColor="{StaticResource Primary}">
+                <Button Text="Save" 
+                        FontFamily="Coda"
+                        FontSize="24"
+                        Command="{Binding SaveCommand}"/>
+            </Border>
+            <Border Grid.Column="2"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 0, 0, 0, 15"
+                    BackgroundColor="{StaticResource Primary}">
+                <Button Text="Cancel" 
+                        FontFamily="Coda"
+                        FontSize="24"
+                        Command="{Binding GoBackCommand}"/>
+            </Border>
+        </Grid>
+    </VerticalStackLayout>
+    
+</ContentPage>

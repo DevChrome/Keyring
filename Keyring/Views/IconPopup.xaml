@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<m:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vms="clr-namespace:Keyring.ViewModels"
+             xmlns:h="clr-namespace:Keyring.Helpers"
+             xmlns:m="clr-namespace:Mopups.Pages;assembly=Mopups"
+             x:Class="Keyring.IconPopup"
+             Title="IconPopup" BackgroundColor="#80000000">
+
+    <Border StrokeThickness="0" StrokeShape="RoundRectangle 15, 0, 0, 15" Margin="20, 150">
+        <Grid RowDefinitions="Auto, *, Auto" Padding="20, 0"
+              HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+            <Label Grid.Row="0" Text="Select an icon" FontSize="32"
+                   HorizontalOptions="Center"/>
+
+            <CollectionView Grid.Row="1" Margin="0, 30" SelectionMode="Single"
+                            ItemsSource="{x:Static vms:IconPopupVM.Icons}" SelectedItem="{Binding PickedIcon}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3"
+                                     VerticalItemSpacing="10" HorizontalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Image WidthRequest="50" HeightRequest="50">
+                            <Image.Source>
+                                <FontImageSource FontFamily="BootstrapIcons" Size="50"
+                                                 Color="{AppThemeBinding Light={StaticResource Gray600}, Dark=White}"
+                                                 Glyph="{Binding .}"/>
+                            </Image.Source>
+                        </Image>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Grid.Row="2" Text="Done" FontSize="20" Command="{Binding DoneCommand}"/>
+
+        </Grid>
+    </Border>
+    
+</m:PopupPage>

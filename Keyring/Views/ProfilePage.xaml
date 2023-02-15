@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:h="clr-namespace:Keyring.Helpers"
+             x:Class="Keyring.ProfilePage"
+             NavigatedTo="HandleNavigatedTo">
+
+    <Shell.TitleView>
+        <Grid>
+            <Label Text="Your Profile" FontSize="30" TextColor="White"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" IsEnabled="False"/>
+    </Shell.BackButtonBehavior>
+
+    <Grid>
+        <VerticalStackLayout>
+            <Grid Margin="20, 40">
+                <ImageButton Aspect="AspectFit" Command="{Binding ProfilePhotoCommand}">
+                    <ImageButton.Source>
+                        <FontImageSource FontFamily="BootstrapIcons"
+                                     Size="200" Color="Grey"
+                                     Glyph="{x:Static h:BootstrapIcons.Circle}"/>
+                    </ImageButton.Source>
+                </ImageButton>
+            </Grid>
+
+            <Label Text="{Binding CurrentUser.EmailAddress}"
+               FontSize="30" TextColor="{AppThemeBinding Light=Black, Dark=White}"
+               HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <Label Text="{Binding CurrentUser.SignUpTimestamp, StringFormat='{}Signed Up: {0:dd, MMMM, yyyy}'}"
+               FontSize="18" TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray200}}"
+               HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <Label Text="{Binding RecordCount, StringFormat='{}Records: {0}'}"
+               Margin="0,100,0,0"
+               FontSize="40" TextColor="{AppThemeBinding Light=Black, Dark=White}"
+               HorizontalOptions="Center" VerticalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <ImageButton WidthRequest="50" HeightRequest="50" 
+                     BackgroundColor="{StaticResource Primary}"
+                     HorizontalOptions="Start" VerticalOptions="End" 
+                     Command="{Binding LogoutCommand}"
+                     Margin="20" Padding="5" CornerRadius="10">
+            <ImageButton.Shadow>
+                <Shadow Brush="{AppThemeBinding Light=Black, Dark=Transparent}"
+                        Offset="8,8" Radius="5" Opacity="0.5" />
+            </ImageButton.Shadow>
+            <ImageButton.Source>
+                <FontImageSource FontFamily="BootstrapIcons" Glyph="{x:Static h:BootstrapIcons.BoxArrowLeft}" Size="28"/>
+            </ImageButton.Source>
+        </ImageButton>
+
+        <ImageButton WidthRequest="50" HeightRequest="50" 
+                     BackgroundColor="{StaticResource Primary}"
+                     HorizontalOptions="End" VerticalOptions="End"
+                     Command="{Binding DeleteUserCommand}"
+                     Margin="20" Padding="5" CornerRadius="10">
+            <ImageButton.Shadow>
+                <Shadow Brush="{AppThemeBinding Light=Black, Dark=Transparent}"
+                        Offset="8,8" Radius="5" Opacity="0.5" />
+            </ImageButton.Shadow>
+            <ImageButton.Source>
+                <FontImageSource FontFamily="BootstrapIcons" Glyph="{x:Static h:BootstrapIcons.PersonXFill}" Size="40"/>
+            </ImageButton.Source>
+        </ImageButton>
+    </Grid>
+</ContentPage>
